@@ -14,9 +14,15 @@
 		6D70D4ED28E64A2600591508 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D70D4EB28E64A2600591508 /* LaunchScreen.storyboard */; };
 		6D70D4F528E64C0600591508 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D70D4F428E64C0600591508 /* SearchTableViewController.swift */; };
 		6D70D4F728E6558200591508 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D70D4F628E6558200591508 /* SearchTableViewCell.swift */; };
+		6D82814628F9FDD5004AB3E9 /* SearchPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D82814528F9FDD5004AB3E9 /* SearchPlaceholderView.swift */; };
+		6D82814928FA0826004AB3E9 /* UIAnimateble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D82814828FA0826004AB3E9 /* UIAnimateble.swift */; };
+		6DF78C5528ECB5EF001C2FA5 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF78C5428ECB5EF001C2FA5 /* APIService.swift */; };
+		6DF78C5828ECB738001C2FA5 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF78C5728ECB738001C2FA5 /* SearchResults.swift */; };
+		89144090A5EBA6B47B581F49 /* Pods_DCACalculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8FF7F052F7BE61F2F98C8B /* Pods_DCACalculator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4189108E552CBC723281B71B /* Pods-DCACalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCACalculator.debug.xcconfig"; path = "Target Support Files/Pods-DCACalculator/Pods-DCACalculator.debug.xcconfig"; sourceTree = "<group>"; };
 		6D70D4DD28E64A2500591508 /* DCACalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCACalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D70D4E028E64A2500591508 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D70D4E228E64A2500591508 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +32,12 @@
 		6D70D4EE28E64A2600591508 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D70D4F428E64C0600591508 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		6D70D4F628E6558200591508 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		6D82814528F9FDD5004AB3E9 /* SearchPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceholderView.swift; sourceTree = "<group>"; };
+		6D82814828FA0826004AB3E9 /* UIAnimateble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimateble.swift; sourceTree = "<group>"; };
+		6DF78C5428ECB5EF001C2FA5 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		6DF78C5728ECB738001C2FA5 /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
+		8B8FF7F052F7BE61F2F98C8B /* Pods_DCACalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DCACalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		975D3762A014DB486A8F21B2 /* Pods-DCACalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCACalculator.release.xcconfig"; path = "Target Support Files/Pods-DCACalculator/Pods-DCACalculator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89144090A5EBA6B47B581F49 /* Pods_DCACalculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +57,8 @@
 			children = (
 				6D70D4DF28E64A2500591508 /* DCACalculator */,
 				6D70D4DE28E64A2500591508 /* Products */,
+				AF39DEF4AFC333486B11DB0F /* Pods */,
+				F9AE9B4B801CE07351047E43 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +73,9 @@
 		6D70D4DF28E64A2500591508 /* DCACalculator */ = {
 			isa = PBXGroup;
 			children = (
+				6D82814728FA0808004AB3E9 /* protocol */,
+				6DF78C5628ECB722001C2FA5 /* model */,
+				6DF78C5328ECB5DB001C2FA5 /* service */,
 				6D70D4F828E6558900591508 /* view */,
 				6DF78C5228ECB09C001C2FA5 /* controller */,
 				6D70D4E028E64A2500591508 /* AppDelegate.swift */,
@@ -74,8 +92,17 @@
 			isa = PBXGroup;
 			children = (
 				6D70D4F628E6558200591508 /* SearchTableViewCell.swift */,
+				6D82814528F9FDD5004AB3E9 /* SearchPlaceholderView.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		6D82814728FA0808004AB3E9 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				6D82814828FA0826004AB3E9 /* UIAnimateble.swift */,
+			);
+			path = protocol;
 			sourceTree = "<group>";
 		};
 		6DF78C5228ECB09C001C2FA5 /* controller */ = {
@@ -86,6 +113,39 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
+		6DF78C5328ECB5DB001C2FA5 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				6DF78C5428ECB5EF001C2FA5 /* APIService.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		6DF78C5628ECB722001C2FA5 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				6DF78C5728ECB738001C2FA5 /* SearchResults.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		AF39DEF4AFC333486B11DB0F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4189108E552CBC723281B71B /* Pods-DCACalculator.debug.xcconfig */,
+				975D3762A014DB486A8F21B2 /* Pods-DCACalculator.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F9AE9B4B801CE07351047E43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B8FF7F052F7BE61F2F98C8B /* Pods_DCACalculator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -93,9 +153,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D70D4F128E64A2600591508 /* Build configuration list for PBXNativeTarget "DCACalculator" */;
 			buildPhases = (
+				F61F4398B4FB4DA79CA5141C /* [CP] Check Pods Manifest.lock */,
 				6D70D4D928E64A2500591508 /* Sources */,
 				6D70D4DA28E64A2500591508 /* Frameworks */,
 				6D70D4DB28E64A2500591508 /* Resources */,
+				CE2F7A7ED5FFA73E529C6FED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,15 +214,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CE2F7A7ED5FFA73E529C6FED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DCACalculator/Pods-DCACalculator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DCACalculator/Pods-DCACalculator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DCACalculator/Pods-DCACalculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F61F4398B4FB4DA79CA5141C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DCACalculator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6D70D4D928E64A2500591508 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6D70D4E128E64A2500591508 /* AppDelegate.swift in Sources */,
+				6DF78C5528ECB5EF001C2FA5 /* APIService.swift in Sources */,
+				6D82814928FA0826004AB3E9 /* UIAnimateble.swift in Sources */,
 				6D70D4F728E6558200591508 /* SearchTableViewCell.swift in Sources */,
 				6D70D4F528E64C0600591508 /* SearchTableViewController.swift in Sources */,
+				6DF78C5828ECB738001C2FA5 /* SearchResults.swift in Sources */,
 				6D70D4E328E64A2500591508 /* SceneDelegate.swift in Sources */,
+				6D82814628F9FDD5004AB3E9 /* SearchPlaceholderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +410,7 @@
 		};
 		6D70D4F228E64A2600591508 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4189108E552CBC723281B71B /* Pods-DCACalculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -332,6 +441,7 @@
 		};
 		6D70D4F328E64A2600591508 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 975D3762A014DB486A8F21B2 /* Pods-DCACalculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search Table View Controller-->
+        <!--Search-->
         <scene sceneID="Skr-eZ-Kyh">
             <objects>
                 <tableViewController id="sj4-Rf-jed" customClass="SearchTableViewController" customModule="DCACalculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,7 +49,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HbS-bO-wLY">
                                                     <rect key="frame" x="158" y="0.0" width="160" height="80"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The boing company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6d-aO-5qC">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The boing company" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6d-aO-5qC">
                                                             <rect key="frame" x="0.0" y="0.0" width="160" height="80"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -82,7 +82,7 @@
                             <outlet property="delegate" destination="sj4-Rf-jed" id="quw-wE-pbf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="1c3-nq-f7h"/>
+                    <navigationItem key="navigationItem" title="Search" id="1c3-nq-f7h"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvv-ae-aGo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -93,8 +93,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iuy-PB-YLz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="88N-c3-neS">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="88N-c3-neS">
+                        <rect key="frame" x="0.0" y="47" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
