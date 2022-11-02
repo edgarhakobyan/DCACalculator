@@ -47,6 +47,7 @@ class SearchTableViewController: UITableViewController, UIAnimateble {
         $searchQuery
             .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
             .sink { [unowned self] (searchQuery) in
+                guard !searchQuery.isEmpty else { return }
                 showLoadingAnimation()
                 self.apiService.fetchSymbolPublisher(keyword: searchQuery).sink { (completion) in
                     self.hideLoadingAnimation()
@@ -84,6 +85,38 @@ class SearchTableViewController: UITableViewController, UIAnimateble {
             cell.configure(with: searchResults.items[indexPath.row])
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let searchResults = searchResults {
+            let searchResult = searchResults.items[indexPath.row]
+            handleSelection(searchResult: searchResult)
+        }
+    }
+    
+    private func handleSelection(searchResult: SearchResult) {
+        showLoadingAnimation()
+        apiService.fetchTimeSeriesMonthlyAdjustedPublisher(keyword: searchResult.symbol).sink { [weak self] (completion) in
+            self?.hideLoadingAnimation()
+            switch completion {
+            case .failure(let err):
+                print(err)
+            case .finished:
+                print("finished")
+            }
+        } receiveValue: { [weak self] (result) in
+            self?.hideLoadingAnimation()
+            let asset = Asset(searchResult: searchResult, timeSeriesMonthlyAdjusted: result)
+            self?.performSegue(withIdentifier: "calculatorSegue", sender: asset)
+        }.store(in: &subscribers)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "calculatorSegue",
+           let destinationVC = segue.destination as? CalculatorTableViewController,
+           let asset = sender as? Asset {
+            destinationVC.asset = asset
+        }
     }
     
 }
