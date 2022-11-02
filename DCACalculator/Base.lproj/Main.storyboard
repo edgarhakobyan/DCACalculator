@@ -84,7 +84,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Search" id="1c3-nq-f7h"/>
                     <connections>
-                        <segue destination="E8O-Mc-EsI" kind="show" identifier="calculatorSegue" id="ltT-cY-xGj"/>
+                        <segue destination="E8O-Mc-EsI" kind="show" identifier="segueToCalculatorView" id="ltT-cY-xGj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvv-ae-aGo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -95,7 +95,7 @@
         <scene sceneID="vVc-62-aMe">
             <objects>
                 <tableViewController id="E8O-Mc-EsI" customClass="CalculatorTableViewController" customModule="DCACalculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="3f0-n4-Bl8">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="3f0-n4-Bl8">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -277,7 +277,7 @@
                                                                         <constraint firstAttribute="height" constant="36" id="foL-75-ebZ"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="n4A-7X-wLq">
                                                                     <rect key="frame" x="0.0" y="32" width="318" height="14"/>
@@ -310,7 +310,7 @@
                                                                         <constraint firstAttribute="height" constant="36" id="3SC-Lj-w4o"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="OiW-Cv-weF">
                                                                     <rect key="frame" x="0.0" y="32" width="318" height="14"/>
@@ -385,17 +385,79 @@
                     </tableView>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="FCu-Lc-TdC"/>
                     <connections>
+                        <outlet property="initialDateTextField" destination="qMk-ae-6lF" id="sJK-rc-huG"/>
+                        <outlet property="initialInvestmentAmountTextField" destination="KtY-Zh-S5y" id="ck8-9y-QSq"/>
                         <outlet property="investmentCurrencyLabel" destination="DEW-11-nTK" id="zot-aX-Wrg"/>
+                        <outlet property="monthlyAverageAmountTextField" destination="ccH-St-MaD" id="27u-bA-YCH"/>
                         <outlet property="nameLabel" destination="AEc-UF-u7U" id="Pjr-1N-koS"/>
                         <outlet property="symbolLabel" destination="Uk1-Qg-KpS" id="rkL-zD-Qit"/>
                         <outletCollection property="currencyLabels" destination="p4k-D9-zlU" collectionClass="NSMutableArray" id="FGe-Lb-vHQ"/>
                         <outletCollection property="currencyLabels" destination="syG-jV-2up" collectionClass="NSMutableArray" id="E0X-Yg-Ker"/>
                         <outletCollection property="currencyLabels" destination="IGi-Pu-ojI" collectionClass="NSMutableArray" id="RPp-r4-mdT"/>
+                        <segue destination="PT8-eu-jhi" kind="show" identifier="segueToDateView" id="cFO-u3-e7I"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPD-st-daa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1787.6923076923076" y="4.9763033175355451"/>
+        </scene>
+        <!--Date Selection Table View Controller-->
+        <scene sceneID="Twq-5N-uyG">
+            <objects>
+                <tableViewController id="PT8-eu-jhi" customClass="DateSelectionTableViewController" customModule="DCACalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="w8O-Ya-him">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="dateCell" rowHeight="64" id="Vg3-Fg-001" customClass="DateTableViewCell" customModule="DCACalculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="390" height="64"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vg3-Fg-001" id="Alp-tN-XMP">
+                                    <rect key="frame" x="0.0" y="0.0" width="346" height="64"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="D3o-CI-6YK">
+                                            <rect key="frame" x="16" y="8" width="314" height="48"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAX-6K-n85">
+                                                    <rect key="frame" x="0.0" y="0.0" width="314" height="27.333333333333332"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recently" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea7-XZ-tr3">
+                                                    <rect key="frame" x="0.0" y="27.333333333333336" width="314" height="20.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="D3o-CI-6YK" secondAttribute="bottom" constant="8" id="BAg-q7-yil"/>
+                                        <constraint firstAttribute="trailing" secondItem="D3o-CI-6YK" secondAttribute="trailing" constant="16" id="EtP-rV-iN0"/>
+                                        <constraint firstItem="D3o-CI-6YK" firstAttribute="leading" secondItem="Alp-tN-XMP" secondAttribute="leading" constant="16" id="aRK-Yh-RH0"/>
+                                        <constraint firstItem="D3o-CI-6YK" firstAttribute="top" secondItem="Alp-tN-XMP" secondAttribute="top" constant="8" id="tcM-bh-d94"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="BAX-6K-n85" id="VTz-5y-N8v"/>
+                                    <outlet property="monthsAgoLabel" destination="ea7-XZ-tr3" id="ndw-tL-wFB"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PT8-eu-jhi" id="HoE-jf-5FW"/>
+                            <outlet property="delegate" destination="PT8-eu-jhi" id="xrx-mS-IW1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="mcY-PQ-jTM"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qjf-ei-4Ol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2673.8461538461538" y="4.9763033175355451"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jZT-XV-pSG">

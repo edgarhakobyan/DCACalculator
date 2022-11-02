@@ -11,4 +11,10 @@ extension String {
     func addBrackets() -> String {
         return "(\(self))"
     }
+    
+    func convertToDate() -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.date(from: self)
+    }
 }

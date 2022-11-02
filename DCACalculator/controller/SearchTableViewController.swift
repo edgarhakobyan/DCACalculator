@@ -107,12 +107,12 @@ class SearchTableViewController: UITableViewController, UIAnimateble {
         } receiveValue: { [weak self] (result) in
             self?.hideLoadingAnimation()
             let asset = Asset(searchResult: searchResult, timeSeriesMonthlyAdjusted: result)
-            self?.performSegue(withIdentifier: "calculatorSegue", sender: asset)
+            self?.performSegue(withIdentifier: "segueToCalculatorView", sender: asset)
         }.store(in: &subscribers)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "calculatorSegue",
+        if segue.identifier == "segueToCalculatorView",
            let destinationVC = segue.destination as? CalculatorTableViewController,
            let asset = sender as? Asset {
             destinationVC.asset = asset
