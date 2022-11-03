@@ -10,6 +10,7 @@
 		6D29E2C629115A0F00352E1A /* CalculatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D29E2C529115A0F00352E1A /* CalculatorTableViewController.swift */; };
 		6D29E2C829115AF000352E1A /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D29E2C729115AF000352E1A /* Asset.swift */; };
 		6D29E2CB2911690500352E1A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D29E2CA2911690500352E1A /* String+Extensions.swift */; };
+		6D5728D62913FDFA00C33893 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5728D52913FDFA00C33893 /* Int+Extensions.swift */; };
 		6D70D4E128E64A2500591508 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D70D4E028E64A2500591508 /* AppDelegate.swift */; };
 		6D70D4E328E64A2500591508 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D70D4E228E64A2500591508 /* SceneDelegate.swift */; };
 		6D70D4E828E64A2500591508 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D70D4E628E64A2500591508 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		6D29E2C529115A0F00352E1A /* CalculatorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTableViewController.swift; sourceTree = "<group>"; };
 		6D29E2C729115AF000352E1A /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		6D29E2CA2911690500352E1A /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		6D5728D52913FDFA00C33893 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		6D70D4DD28E64A2500591508 /* DCACalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCACalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D70D4E028E64A2500591508 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D70D4E228E64A2500591508 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				6D29E2CA2911690500352E1A /* String+Extensions.swift */,
 				6DF46EA22912893800AF4AD1 /* UITextField+Extensions.swift */,
 				6DF46EA82912931A00AF4AD1 /* Date+Extensions.swift */,
+				6D5728D52913FDFA00C33893 /* Int+Extensions.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				6DF46EA32912893800AF4AD1 /* UITextField+Extensions.swift in Sources */,
 				6D70D4E128E64A2500591508 /* AppDelegate.swift in Sources */,
 				6DF46EA729128F7F00AF4AD1 /* DateSelectionTableViewController.swift in Sources */,
+				6D5728D62913FDFA00C33893 /* Int+Extensions.swift in Sources */,
 				6DF78C5528ECB5EF001C2FA5 /* APIService.swift in Sources */,
 				6D82814928FA0826004AB3E9 /* UIAnimateble.swift in Sources */,
 				6D29E2C829115AF000352E1A /* Asset.swift in Sources */,
@@ -473,6 +477,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.edgarh.DCACalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -504,6 +511,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.edgarh.DCACalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

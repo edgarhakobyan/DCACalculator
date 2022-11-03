@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iuy-PB-YLz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iuy-PB-YLz">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -361,6 +361,9 @@
                                                                 </stackView>
                                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bOr-oB-NNL">
                                                                     <rect key="frame" x="-2" y="42" width="322" height="71"/>
+                                                                    <connections>
+                                                                        <action selector="sliderDidChange:" destination="E8O-Mc-EsI" eventType="valueChanged" id="att-OD-Jlm"/>
+                                                                    </connections>
                                                                 </slider>
                                                             </subviews>
                                                         </stackView>
@@ -385,6 +388,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="FCu-Lc-TdC"/>
                     <connections>
+                        <outlet property="dateSlider" destination="bOr-oB-NNL" id="PTd-Dc-aRg"/>
                         <outlet property="initialDateTextField" destination="qMk-ae-6lF" id="sJK-rc-huG"/>
                         <outlet property="initialInvestmentAmountTextField" destination="KtY-Zh-S5y" id="ck8-9y-QSq"/>
                         <outlet property="investmentCurrencyLabel" destination="DEW-11-nTK" id="zot-aX-Wrg"/>

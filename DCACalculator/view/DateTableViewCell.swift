@@ -12,8 +12,9 @@ class DateTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var monthsAgoLabel: UILabel!
     
-    func configure(with monthInfo: MonthInfo, index: Int) {
+    func configure(with monthInfo: MonthInfo, index: Int, isSelected: Bool) {
         self.dateLabel.text = monthInfo.date.MMYYFormat()
+        self.accessoryType = isSelected ? .checkmark : .none
         
         if index == 0 {
             self.monthsAgoLabel.text = "Just Invested"
