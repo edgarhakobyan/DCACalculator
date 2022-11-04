@@ -36,11 +36,17 @@ class SearchTableViewController: UITableViewController, UIAnimateble {
         super.viewDidLoad()
 
         setupNavigationBar()
+        setupTableView()
         observeForm()
     }
     
     private func setupNavigationBar() {
         navigationItem.searchController = searchController
+    }
+    
+    private func setupTableView() {
+        tableView.isScrollEnabled = false
+        tableView.tableFooterView = UIView()
     }
     
     private func observeForm() {
@@ -59,6 +65,7 @@ class SearchTableViewController: UITableViewController, UIAnimateble {
                     }
                 } receiveValue: { results in
                     self.searchResults = results
+                    self.tableView.isScrollEnabled = true
                     self.tableView.reloadData()
                 }.store(in: &subscribers)
             }.store(in: &subscribers)
@@ -107,8 +114,8 @@ class SearchTableViewController: UITableViewController, UIAnimateble {
         } receiveValue: { [weak self] (result) in
             self?.hideLoadingAnimation()
             let asset = Asset(searchResult: searchResult, timeSeriesMonthlyAdjusted: result)
-            print("Success \(result)")
             self?.performSegue(withIdentifier: "segueToCalculatorView", sender: asset)
+            self?.searchController.searchBar.text = nil
         }.store(in: &subscribers)
     }
     

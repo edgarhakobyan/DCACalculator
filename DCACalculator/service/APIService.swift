@@ -54,8 +54,6 @@ struct APIService {
         
         let urlString = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=\(query)&apikey=\(API_KEY)"
         
-        print(urlString)
-        
         let urlResult = parseUrl(str: urlString)
         switch urlResult {
         case .success(let url):

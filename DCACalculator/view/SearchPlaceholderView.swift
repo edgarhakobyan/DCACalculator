@@ -10,7 +10,7 @@ import UIKit
 class SearchPlaceholderView: UIView {
 
     private let imageView: UIImageView = {
-        let image = UIImage(named: "imDca")
+        let image = UIImage(named: "calc")
         let imageView = UIImageView()
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
@@ -49,7 +49,7 @@ class SearchPlaceholderView: UIView {
             stackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
             stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 88)
+            imageView.heightAnchor.constraint(equalToConstant: 128)
         ])
     }
 }

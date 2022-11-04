@@ -39,6 +39,12 @@ class CalculatorTableViewController: UITableViewController {
         setupTextFields()
         setupDateSlider()
         observeForm()
+        resetViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        initialInvestmentAmountTextField.becomeFirstResponder()
     }
     
     @IBAction func sliderDidChange(_ sender: UISlider) {
@@ -46,6 +52,7 @@ class CalculatorTableViewController: UITableViewController {
     }
 
     private func setupView() {
+        navigationItem.title = asset?.searchResult.symbol
         self.symbolLabel.text = asset?.searchResult.symbol
         self.nameLabel.text = asset?.searchResult.name
         self.currencyLabels.forEach { label in
@@ -65,6 +72,14 @@ class CalculatorTableViewController: UITableViewController {
             let dateSliderSize = count - 1
             dateSlider.maximumValue = dateSliderSize.floatValue
         }
+    }
+    
+    private func resetViews() {
+        currentValueLabel.text = "0.00"
+        investmentAmountLabel.text = "0.00"
+        gainLabel.text = "-"
+        yieldLabel.text = "-"
+        annualReturnLabel.text = "-"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -123,12 +138,17 @@ class CalculatorTableViewController: UITableViewController {
             
             let result = self?.dcaService.calculate(asset: asset, initialInvestmentAmount: initialInvestmentAmount.doubleValue, monthlyDollarCostAmount: monthlyAverageAmount.doubleValue, initialDateInvestmentIndex: currentInitialDateIndex)
             
-            self?.currentValueLabel.backgroundColor = (result?.isProfitable == true) ? .themeGreenShade : .themeRedShade
-            self?.currentValueLabel.text = result?.currentValue.twoDecimalPlaceString
-            self?.investmentAmountLabel.text = result?.investmentAmount.stringValue
-            self?.gainLabel.text = result?.gain.stringValue
-            self?.yieldLabel.text = result?.yield.stringValue.addBrackets()
-            self?.annualReturnLabel.text = result?.annualReturn.stringValue
+            let isProfitable = result?.isProfitable == true
+            let gainSymbol = isProfitable ? "+" : ""
+            
+            self?.currentValueLabel.backgroundColor = isProfitable ? .themeGreenShade : .themeRedShade
+            self?.currentValueLabel.text = result?.currentValue.currencyFormat
+            self?.investmentAmountLabel.text = result?.investmentAmount.currencyFormat
+            self?.gainLabel.text = result?.gain.toCurrencyFormat(hasDollarSymbol: false, hasDecimalPlaces: false).prefix(with: gainSymbol)
+            self?.yieldLabel.text = result?.yield.percentageFormat.prefix(with: gainSymbol).addBrackets()
+            self?.yieldLabel.textColor = isProfitable ? .systemGreen : .systemRed
+            self?.annualReturnLabel.text = result?.annualReturn.percentageFormat
+            self?.annualReturnLabel.textColor = isProfitable ? .systemGreen : .systemRed
             
         }.store(in: &subscribers)
     }

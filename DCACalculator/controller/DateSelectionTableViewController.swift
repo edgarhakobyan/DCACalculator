@@ -20,6 +20,8 @@ class DateSelectionTableViewController: UITableViewController {
         if let monthInfos = timeSeriesMonthlyAdjusted?.getMonthInfos() {
             self.monthInfos = monthInfos
         }
+        
+        title = "Select date"
     }
 
     // MARK: - Table view data source

@@ -17,4 +17,8 @@ extension String {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.date(from: self)
     }
+    
+    func prefix(with text: String) -> String {
+        return "\(text)\(self)"
+    }
 }
