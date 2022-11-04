@@ -100,13 +100,14 @@ class SearchTableViewController: UITableViewController, UIAnimateble {
             self?.hideLoadingAnimation()
             switch completion {
             case .failure(let err):
-                print(err)
+                print("ERROR \(err)")
             case .finished:
                 print("finished")
             }
         } receiveValue: { [weak self] (result) in
             self?.hideLoadingAnimation()
             let asset = Asset(searchResult: searchResult, timeSeriesMonthlyAdjusted: result)
+            print("Success \(result)")
             self?.performSegue(withIdentifier: "segueToCalculatorView", sender: asset)
         }.store(in: &subscribers)
     }
