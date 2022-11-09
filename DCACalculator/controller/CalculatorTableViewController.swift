@@ -31,6 +31,7 @@ class CalculatorTableViewController: UITableViewController {
     
     private var subscribers = Set<AnyCancellable>()
     private let dcaService = DCAService()
+    private let calculatorPresenter = CalculatorPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,20 +137,18 @@ class CalculatorTableViewController: UITableViewController {
                   let monthlyAverageAmount = monthlyAverageAmount,
                   let currentInitialDateIndex = currentInitialDateIndex else { return }
             
-            let result = self?.dcaService.calculate(asset: asset, initialInvestmentAmount: initialInvestmentAmount.doubleValue, monthlyDollarCostAmount: monthlyAverageAmount.doubleValue, initialDateInvestmentIndex: currentInitialDateIndex)
+            guard let result = self?.dcaService.calculate(asset: asset, initialInvestmentAmount: initialInvestmentAmount.doubleValue, monthlyDollarCostAmount: monthlyAverageAmount.doubleValue, initialDateInvestmentIndex: currentInitialDateIndex) else { return }
             
-            let isProfitable = result?.isProfitable == true
-            let gainSymbol = isProfitable ? "+" : ""
+            let presentation = self?.calculatorPresenter.getPresentation(result: result)
             
-            self?.currentValueLabel.backgroundColor = isProfitable ? .themeGreenShade : .themeRedShade
-            self?.currentValueLabel.text = result?.currentValue.currencyFormat
-            self?.investmentAmountLabel.text = result?.investmentAmount.toCurrencyFormat(hasDecimalPlaces: false)
-            self?.gainLabel.text = result?.gain.toCurrencyFormat(hasDollarSymbol: false, hasDecimalPlaces: false).prefix(with: gainSymbol)
-            self?.yieldLabel.text = result?.yield.percentageFormat.prefix(with: gainSymbol).addBrackets()
-            self?.yieldLabel.textColor = isProfitable ? .systemGreen : .systemRed
-            self?.annualReturnLabel.text = result?.annualReturn.percentageFormat
-            self?.annualReturnLabel.textColor = isProfitable ? .systemGreen : .systemRed
-            
+            self?.currentValueLabel.backgroundColor = presentation?.currentValueLabelBackgroundColor
+            self?.currentValueLabel.text = presentation?.currentValue
+            self?.investmentAmountLabel.text = presentation?.investmentAmount
+            self?.gainLabel.text = presentation?.gain
+            self?.yieldLabel.text = presentation?.yield
+            self?.yieldLabel.textColor = presentation?.yieldLabelTextColor
+            self?.annualReturnLabel.text = presentation?.annualReturn
+            self?.annualReturnLabel.textColor = presentation?.annualReturnLabelTextColor
         }.store(in: &subscribers)
     }
 }
