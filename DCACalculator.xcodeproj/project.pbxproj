@@ -255,6 +255,7 @@
 			buildConfigurationList = 6D70D4F128E64A2600591508 /* Build configuration list for PBXNativeTarget "DCACalculator" */;
 			buildPhases = (
 				F61F4398B4FB4DA79CA5141C /* [CP] Check Pods Manifest.lock */,
+				6DC4339A291D8A17007F395C /* ShellScript */,
 				6D70D4D928E64A2500591508 /* Sources */,
 				6D70D4DA28E64A2500591508 /* Frameworks */,
 				6D70D4DB28E64A2500591508 /* Resources */,
@@ -328,6 +329,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6DC4339A291D8A17007F395C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
 		CE2F7A7ED5FFA73E529C6FED /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

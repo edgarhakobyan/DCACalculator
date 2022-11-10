@@ -10,7 +10,7 @@ import UIKit
 class DateSelectionTableViewController: UITableViewController {
     
     var timeSeriesMonthlyAdjusted: TimeSeriesMonthlyAdjusted?
-    var didSelectDate: ( (Int) -> () )?
+    var didSelectDate: ( (Int) -> Void )?
     var currentSelectedIndex: Int?
     private var monthInfos: [MonthInfo] = []
 
@@ -31,11 +31,13 @@ class DateSelectionTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath) as! DateTableViewCell
-        let monthInfo = monthInfos[indexPath.row]
-        let isSelected = currentSelectedIndex == indexPath.row
-        cell.configure(with: monthInfo, index: indexPath.row, isSelected: isSelected)
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath) as? DateTableViewCell {
+            let monthInfo = monthInfos[indexPath.row]
+            let isSelected = currentSelectedIndex == indexPath.row
+            cell.configure(with: monthInfo, index: indexPath.row, isSelected: isSelected)
+            return cell
+        }
+        return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

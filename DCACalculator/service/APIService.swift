@@ -9,13 +9,12 @@ import Foundation
 import Combine
 
 struct APIService {
-    
     enum APIServiceError: Error {
         case encoding
         case badRequest
     }
     
-    private let API_KEY = "52U7EJ1MBG14Z21C"
+    private let APIKEY = "52U7EJ1MBG14Z21C"
     
     func fetchSymbolPublisher(keyword: String) -> AnyPublisher<SearchResults, Error> {
         var query = ""
@@ -27,13 +26,13 @@ struct APIService {
             return Fail(error: err).eraseToAnyPublisher()
         }
         
-        let urlString = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=\(query)&apikey=\(API_KEY)"
+        let urlString = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=\(query)&apikey=\(APIKEY)"
         
         let urlResult = parseUrl(str: urlString)
         switch urlResult {
         case .success(let url):
             return URLSession.shared.dataTaskPublisher(for: url)
-                .map( { $0.data } )
+                .map({$0.data})
                 .decode(type: SearchResults.self, decoder: JSONDecoder())
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
@@ -52,13 +51,13 @@ struct APIService {
             return Fail(error: err).eraseToAnyPublisher()
         }
         
-        let urlString = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=\(query)&apikey=\(API_KEY)"
+        let urlString = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=\(query)&apikey=\(APIKEY)"
         
         let urlResult = parseUrl(str: urlString)
         switch urlResult {
         case .success(let url):
             return URLSession.shared.dataTaskPublisher(for: url)
-                .map( { $0.data } )
+                .map({$0.data})
                 .decode(type: TimeSeriesMonthlyAdjusted.self, decoder: JSONDecoder())
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()

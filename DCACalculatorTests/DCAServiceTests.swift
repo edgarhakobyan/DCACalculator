@@ -176,17 +176,16 @@ final class DCAServiceTests: XCTestCase {
         XCTAssertEqual(result.gain, -1333.333, accuracy: 0.1)
         XCTAssertEqual(result.yield, -0.26666, accuracy: 0.0001)
     }
-    
-    
+        
     private func buildWinningAsset() -> Asset {
         let searchResult = buildSearchResult()
         let meta = buildMeta()
-        let timeSeries: [String : OHLC] = ["2022-01-25" : OHLC(open: "100", close: "110", adjustedClose: "110"),
-                                           "2022-02-25" : OHLC(open: "110", close: "120", adjustedClose: "120"),
-                                           "2022-03-25" : OHLC(open: "120", close: "130", adjustedClose: "130"),
-                                           "2022-04-25" : OHLC(open: "130", close: "140", adjustedClose: "140"),
-                                           "2022-05-25" : OHLC(open: "140", close: "150", adjustedClose: "150"),
-                                           "2022-06-25" : OHLC(open: "150", close: "160", adjustedClose: "160")]
+        let timeSeries: [String: OHLC] = ["2022-01-25": OHLC(open: "100", close: "110", adjustedClose: "110"),
+                                           "2022-02-25": OHLC(open: "110", close: "120", adjustedClose: "120"),
+                                           "2022-03-25": OHLC(open: "120", close: "130", adjustedClose: "130"),
+                                           "2022-04-25": OHLC(open: "130", close: "140", adjustedClose: "140"),
+                                           "2022-05-25": OHLC(open: "140", close: "150", adjustedClose: "150"),
+                                           "2022-06-25": OHLC(open: "150", close: "160", adjustedClose: "160")]
         let timeSeriesMonthlyAdjusted = TimeSeriesMonthlyAdjusted(meta: meta, timeSeries: timeSeries)
         return Asset(searchResult: searchResult, timeSeriesMonthlyAdjusted: timeSeriesMonthlyAdjusted)
     }
@@ -194,12 +193,12 @@ final class DCAServiceTests: XCTestCase {
     private func buildLosingAsset() -> Asset {
         let searchResult = buildSearchResult()
         let meta = buildMeta()
-        let timeSeries: [String : OHLC] = ["2022-01-25" : OHLC(open: "170", close: "160", adjustedClose: "160"),
-                                           "2022-02-25" : OHLC(open: "160", close: "150", adjustedClose: "150"),
-                                           "2022-03-25" : OHLC(open: "150", close: "140", adjustedClose: "140"),
-                                           "2022-04-25" : OHLC(open: "140", close: "130", adjustedClose: "130"),
-                                           "2022-05-25" : OHLC(open: "130", close: "120", adjustedClose: "120"),
-                                           "2022-06-25" : OHLC(open: "120", close: "110", adjustedClose: "110")]
+        let timeSeries: [String: OHLC] = ["2022-01-25": OHLC(open: "170", close: "160", adjustedClose: "160"),
+                                           "2022-02-25": OHLC(open: "160", close: "150", adjustedClose: "150"),
+                                           "2022-03-25": OHLC(open: "150", close: "140", adjustedClose: "140"),
+                                           "2022-04-25": OHLC(open: "140", close: "130", adjustedClose: "130"),
+                                           "2022-05-25": OHLC(open: "130", close: "120", adjustedClose: "120"),
+                                           "2022-06-25": OHLC(open: "120", close: "110", adjustedClose: "110")]
         let timeSeriesMonthlyAdjusted = TimeSeriesMonthlyAdjusted(meta: meta, timeSeries: timeSeries)
         return Asset(searchResult: searchResult, timeSeriesMonthlyAdjusted: timeSeriesMonthlyAdjusted)
     }

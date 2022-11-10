@@ -34,8 +34,8 @@ struct DCAService {
     }
     
     func getInvestmentAmount(initialInvestmentAmount: Double,
-                                     monthlyDollarCostAmount: Double,
-                                     initialDateInvestmentIndex: Int) -> Double {
+                             monthlyDollarCostAmount: Double,
+                             initialDateInvestmentIndex: Int) -> Double {
         
         let dollarCostAveragingAmount = initialDateInvestmentIndex.doubleValue * monthlyDollarCostAmount
         let totalAmount = initialInvestmentAmount + dollarCostAveragingAmount

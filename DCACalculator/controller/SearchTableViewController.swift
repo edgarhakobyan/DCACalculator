@@ -16,13 +16,13 @@ class SearchTableViewController: UITableViewController, UIAnimateble {
     }
     
     private lazy var searchController: UISearchController = {
-        let sc = UISearchController(searchResultsController: nil)
-        sc.searchResultsUpdater = self
-        sc.delegate = self
-        sc.obscuresBackgroundDuringPresentation = false
-        sc.searchBar.placeholder = "Enter a company name or symbol"
-        sc.searchBar.autocapitalizationType = .allCharacters
-        return sc
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Enter a company name or symbol"
+        searchController.searchBar.autocapitalizationType = .allCharacters
+        return searchController
     }()
     
     private let apiService = APIService()
@@ -71,7 +71,7 @@ class SearchTableViewController: UITableViewController, UIAnimateble {
             }.store(in: &subscribers)
         
         $mode.sink { [unowned self] mode in
-            switch (mode) {
+            switch mode {
             case .onboarding:
                 self.tableView.backgroundView = SearchPlaceholderView()
             case .seach:
@@ -87,11 +87,13 @@ class SearchTableViewController: UITableViewController, UIAnimateble {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! SearchTableViewCell
-        if let searchResults = self.searchResults {
-            cell.configure(with: searchResults.items[indexPath.row])
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as? SearchTableViewCell {
+            if let searchResults = self.searchResults {
+                cell.configure(with: searchResults.items[indexPath.row])
+            }
+            return cell
         }
-        return cell
+        return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

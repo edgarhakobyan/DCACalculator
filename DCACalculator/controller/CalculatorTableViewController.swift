@@ -155,7 +155,7 @@ class CalculatorTableViewController: UITableViewController {
 
 extension CalculatorTableViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if (initialDateTextField == textField) {
+        if initialDateTextField == textField {
             performSegue(withIdentifier: "segueToDateView", sender: nil)
             return false
         }
